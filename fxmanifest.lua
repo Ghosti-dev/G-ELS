@@ -1,22 +1,19 @@
 fx_version 'cerulean'
 game 'gta5'
-
-
 lua54 'yes'
-
-author 'Ghosti -> Ghostnet Studios'
+author 'Ghosti'
 description 'G-ELS made by Ghostnet Studios'
 
 shared_script 'shared/*.lua'
 
 client_script {
     'config.lua',
-    'client/**/*.lua'
+    'client/**/*.lua',
     'vcf.lua',
 }
 
 server_script {
     'vcf.lua',
-    'server/**/*.lua'
+    'server/**/*.lua',
     'config.lua',
 }
