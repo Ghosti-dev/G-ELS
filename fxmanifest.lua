@@ -1,4 +1,4 @@
-fx_version 'bodacious'
+fx_version 'cerulean'
 game 'gta5'
 
 
@@ -10,13 +10,13 @@ description 'G-ELS made by Ghostnet Studios'
 shared_script 'shared/*.lua'
 
 client_script {
-    'vcf.lua',
     'config.lua',
     'client/**/*.lua'
+    'vcf.lua',
 }
 
 server_script {
     'vcf.lua',
-    'config.lua',
     'server/**/*.lua'
+    'config.lua',
 }
