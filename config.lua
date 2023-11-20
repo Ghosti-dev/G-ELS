@@ -7,21 +7,7 @@ environmentLightBrightness = 0.006
 lightDelay = 10 -- Time in MS
 flashDelay = 15
 
-panelEnabled = true
-panelType = "original"
-panelOffsetX = 0.0
-panelOffsetY = 0.0
 
-allowedPanelTypes = {
-    "original",
-    "old"
-}
-
--- https://docs.fivem.net/game-references/controls
-
-shared = {
-    horn = 86,
-}
 
 keyboard = {
     modifyKey = 132,
@@ -42,6 +28,23 @@ keyboard = {
     secondary = 303, -- U
     primary = 7, -- ?? 
 }
+
+-- you can find it here: https://docs.fivem.net/game-references/controls
+
+shared = {
+    horn = 86,
+}
+
+panelEnabled = true
+panelType = "original"
+panelOffsetX = 0.0
+panelOffsetY = 0.0
+
+allowedPanelTypes = {
+    "original",
+    "old"
+}
+
 
 controller = {
     modifyKey = 73,
