@@ -14,8 +14,8 @@ if verFile then
 end
 
 local latestVersion = curVersion
-local resourceName = "ELS-FiveM" .. (GetCurrentResourceName() ~= "ELS-FiveM" and " (" .. GetCurrentResourceName() .. ")" or "")
-local latestVersionPath = "https://raw.githubusercontent.com/MrDaGree/ELS-FiveM/master/ELS-FiveM/version.json"
+local resourceName = "G-ELS" .. (GetCurrentResourceName() ~= "G-ELS" and " (" .. GetCurrentResourceName() .. ")" or "")
+local latestVersionPath = "https://raw.githubusercontent.com/Ghosti-dev/G-ELS/main/version.json"
 local curVerCol = function(nextVer)
     return
         (curVersion < nextVer) and "~r~" or
@@ -34,18 +34,18 @@ function checkVersion()
 		local latestVersion = data_version:gsub("%.", "")
 			
 		if curVersion == 0 then
-			return print("^1Could not determine which version of ELS-FiveM you are running.")
+			return print("^1Could not determine which version of G-ELS you are running.")
 		end
 
 		-- is beta
 		if latestVersion:sub(-1) == "b" then
 			print("^1--------------------------------------------------------------------------")
 			print("You are currently running a BETA version of " .. resourceName .. ".^7")
-			print("Please report any regressions you find on the GitHub page (^4https://github.com/MrDaGree/ELS-FiveM^1")
+			print("Please report any regressions you find on the GitHub page (^4https://github.com/Ghosti-dev/G-ELS^1")
 			print("--------------------------------------------------------------------------^7")
 		elseif curVersion ~= data_version and curVersion < lVer then
 			print("--------------------------------------------------------------------------")
-			print(resourceName .. " is outdated.\nCurrent Version: " .. data_version .. "\nYour Version: " .. curVersion .. "\nPlease update it from https://github.com/MrDaGree/ELS-FiveM")
+			print(resourceName .. " is outdated.\nCurrent Version: " .. data_version .. "\nYour Version: " .. curVersion .. "\nPlease update it from https://github.com/Ghosti-dev/G-ELS")
 			print("\nUpdate Changelog:\n"..data.changelog)
 			print("\n--------------------------------------------------------------------------")
 		elseif curVersion > lVer then
@@ -91,22 +91,22 @@ RegisterCommand('els', function(source, args)
             if curVersion ~= data_verson and curVersion < thisVersion then
                 message = "You are currently running an outdated version of [ " .. GetCurrentResourceName() .. " ]. Your version [ " .. curVersion .. " ]. Newest version: [ " .. data_verson .. " ]."
             elseif curVersion > thisVersion then
-                message = "Um, what? Your version of ELS-FiveM is higher than the current version. What?"
+                message = "Um, what? Your version of G-ELS is higher than the current version. What?"
             else
                 message = "Your version of [ " .. GetCurrentResourceName() .. " ] is up to date! Current version: [ " .. curVersion .. " ]."
             end
 
             if message then
-                return print("ELS-FiveM (" .. GetCurrentResourceName() .. "): " .. message)
+                return print("G-ELS (" .. GetCurrentResourceName() .. "): " .. message)
             end
 
-            return print("ELS-FiveM (" .. GetCurrentResourceName() .. "): Could not find any relationship between the latest version and the version you are running.")
+            return print("G-ELS (" .. GetCurrentResourceName() .. "): Could not find any relationship between the latest version and the version you are running.")
         end, "GET", "", {version = 'this'})
     elseif args[1] == 'panel' then
         if source == 0 then return end
         if not args[2] then
             TriggerClientEvent("chat:addMessage", source, {
-                args = { "ELS-FiveM", "Please input a panel type! " },
+                args = { "G-ELS", "Please input a panel type! " },
                 color = {13, 161, 200}
             })
             return
@@ -124,9 +124,9 @@ AddEventHandler("els:playerSpawned", function()
     if not warnOnJoin() then return end
 
     if curVersion < latestVersion then
-        TriggerClientEvent("els:notify", source, "~r~ELS-FiveM~s~~n~Outdated version! Please update as soon as possible.")
+        TriggerClientEvent("els:notify", source, "~r~G-ELS~s~~n~Outdated version! Please update as soon as possible.")
     elseif curVersion > latestVersion then
-        TriggerClientEvent("els:notify", source, "~o~ELS-FiveM~s~~n~The current version is higher than latest! Please downgrade or check for updates.")
+        TriggerClientEvent("els:notify", source, "~o~G-ELS~s~~n~The current version is higher than latest! Please downgrade or check for updates.")
     else
         return
     end
@@ -777,7 +777,7 @@ AddEventHandler('onResourceStart', function(name)
 
         local vcfType = type(vcf_files)
         assert(vcfType == "table", string.format("Expected type 'table' for vcf_files, got %s. %s", vcfType, vcfType == "nil" and 
-            "Please make sure you have a file called 'vcf.lua' in the resource root folder (resources/ELS-FiveM or similar). Copy the contents of 'vcf.default.lua' " ..
+            "Please make sure you have a file called 'vcf.lua' in the resource root folder (resources/G-ELS or similar). Copy the contents of 'vcf.default.lua' " ..
             "and alter accordingly." or "")
         )
 
