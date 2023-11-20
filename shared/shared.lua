@@ -1,7 +1,7 @@
 function debugPrint(msg, force, inLoop)
     local prefix = IsDuplicityVersion() and '(server)' or '(client)'
     if EGetConvarBool("els_debug") or force then
-        print(prefix .. ' G-FiveM: ' .. msg)
+        print(prefix .. ' G-ELS: ' .. msg)
         if inLoop then
             Citizen.Wait(500)
         end

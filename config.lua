@@ -35,7 +35,7 @@ shared = {
     horn = 86,
 }
 
-panelEnabled = true
+panelEnabled = false
 panelType = "original"
 panelOffsetX = 0.0
 panelOffsetY = 0.0
